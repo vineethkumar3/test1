@@ -1,0 +1,12 @@
+1. sudo apt-get update
+2. sudo apt-get install apt-transport-https lsb-release curl
+3. echo "deb [signed-by=/usr/share/keyrings/i2p-archive-keyring.gpg] https://deb.i2p.net/ $(dpkg --status tzdata | grep Provides | cut -f2 -d'-') main" \
+  | sudo tee /etc/apt/sources.list.d/i2p.list
+4.  curl -o i2p-archive-keyring.gpg https://geti2p.net/_static/i2p-archive-keyring.gpg
+5. gpg --keyid-format long --import --import-options show-only --with-fingerprint i2p-archive-keyring.gpg
+6. sudo cp i2p-archive-keyring.gpg /usr/share/keyrings
+7. sudo apt-get update
+8. sudo apt-get install i2p i2p-keyring
+9. sudo dpkg --remove i2p-keyring
+10. sudo apt --fix-broken install
+11. sudo apt install i2p
